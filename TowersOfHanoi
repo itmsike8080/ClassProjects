@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+void moving(int, char, char, char); //prototype for function 'moving'
+
+int main()
+{
+	int disks;
+	cout << "Enter the number of disks: ";
+	cin >> disks;
+	cout << "The sequence of moves involved in the Tower of Hanoi are :" << endl;
+	moving(disks, 'A', 'C', 'B');
+	return 0;
+}
+void moving(int num, char fromtower, char totower, char othertower) // function that will do the work
+{
+	if (num == 1) // prime the function
+	{
+		cout << "Move disk 1 from tower " << fromtower << " to tower " << totower << endl;
+		return;
+	}
+	moving(num - 1, fromtower, othertower, totower);
+	cout << "Move disk " << num << " from tower " << fromtower << " to tower " << totower << endl;
+	moving(num - 1, othertower, totower, fromtower);
+}
