@@ -1,0 +1,33 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int i = 0;
+
+double Expon(double a,double b);
+
+void main()
+{
+	double x;
+	double n;
+	double answer;
+	cout << "Please enter the base of the exponent:";
+	cin >> x;
+	cout << "Please enter the exponent:";
+	cin >> n;
+	answer = Expon(x,n);
+	cout << "It took " << i << " mulitplications to complete." << endl;
+	cout << "The Answer is: " << answer << endl;
+
+}
+
+
+double Expon(double a ,double b)
+{
+	if (b == 0) {
+		return 1;
+	}
+	else
+		i++;
+		return a * Expon(a, b-1);
+}
